@@ -20,10 +20,14 @@
   },
   "engines": {
     "node": "16.13.2"
-.  },
+  },
   "repository": {
     "type": "git",
     "url": ""
-  }
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ]
 }
-.
