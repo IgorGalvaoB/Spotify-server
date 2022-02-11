@@ -120,12 +120,9 @@ app.get('/callback', function(req, res) {
 });
 
 app.get('/refresh_token', function(req, res) {
-  
+
   // requesting access token from refresh token
-  var back = req.data.refresh_token
-  var refresh_token = 'AQBLnul7S9Z1WYUZNMdU12QdCKKxBYJSzUFHh-hIqhdzhokD27pwyBEh0AtTUFUxJsmCQ7XK4Qb8n06zflIb5m2kBqjjnmDLIFvhFJ_89uBiARH8ktX7AOyaAjKM4DW1pBk'
-  
-  
+  var refresh_token = 'AQCzgwwrexgASglJ6V4qMrijxBwOghtkNf-ymecuBQRtbxo8QEBka3li9GQmqjsBt4OViKsubZAuF8ymOJ0FhoHHhT3Q2Qv28ufSxOm3729fJh1wVLbRQnpAvc_3i7uY_HQ'
   var authOptions = {
     url: 'https://accounts.spotify.com/api/token',
     headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
@@ -136,14 +133,14 @@ app.get('/refresh_token', function(req, res) {
     json: true
   };
 
-  request.post(authOptions, function(error, response, body){
-    if (!error&& response.statusCode === 200) {
+  request.post(authOptions, function(error, response, body) {
+    if (!error && response.statusCode === 200) {
       var access_token = body.access_token;
       res.send({
-        'access_token':access_token
+        'access_token': access_token
       });
     }
-  }) 
+  });
 })
 
 app.listen(app.get('port'), function() {
