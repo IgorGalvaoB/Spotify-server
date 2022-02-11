@@ -122,8 +122,8 @@ app.get('/callback', function(req, res) {
 app.get('/refresh_token', function(req, res) {
   
   // requesting access token from refresh token
-  var refresh_token = req.data.refresh_token
-
+  var back = req.data.refresh_token
+  var refresh_token = 'AQAuv2JcEUgBdSMAjCQUFGAbHgM-b4YYnQsPDlWvG5flno5mkiyNV95LyYPMtKt80uVy7VguU7epHp7FyrWjAW5oOrcxsIkzRVEeMA-S03-XnvmhLOiwq1R_HOZdirlOSJ0'
   
   
   var authOptions = {
@@ -141,6 +141,7 @@ app.get('/refresh_token', function(req, res) {
       var access_token = body.access_token;
       res.send({
         'access_token' : access_token,
+        'back':back
       });
     }
   }) 
