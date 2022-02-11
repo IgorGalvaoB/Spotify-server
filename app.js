@@ -125,8 +125,8 @@ app.get('/refresh_token', function(req, res) {
   var refresh_token = req.data.refresh_token
 
   
-  var refresh_token = req.query.refresh_token 
-    var authOptions = {
+  
+  var authOptions = {
     url: 'https://accounts.spotify.com/api/token',
     headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
     form: {
