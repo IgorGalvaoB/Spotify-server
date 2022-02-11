@@ -123,6 +123,7 @@ app.get('/refresh_token', function(req, res) {
   
   // requesting access token from refresh token
   var back = req.data.refresh_token
+  var refresh_token = 'AQBLnul7S9Z1WYUZNMdU12QdCKKxBYJSzUFHh-hIqhdzhokD27pwyBEh0AtTUFUxJsmCQ7XK4Qb8n06zflIb5m2kBqjjnmDLIFvhFJ_89uBiARH8ktX7AOyaAjKM4DW1pBk'
   
   
   var authOptions = {
@@ -130,8 +131,7 @@ app.get('/refresh_token', function(req, res) {
     headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
     form: {
       grant_type: 'refresh_token',
-      'refresh_token':'AQAuv2JcEUgBdSMAjCQUFGAbHgM-b4YYnQsPDlWvG5flno5mkiyNV95LyYPMtKt80uVy7VguU7epHp7FyrWjAW5oOrcxsIkzRVEeMA-S03-XnvmhLOiwq1R_HOZdirlOSJ0'
-      
+      refresh_token: refresh_token
     },
     json: true
   };
@@ -140,8 +140,7 @@ app.get('/refresh_token', function(req, res) {
     if (!error&& response.statusCode === 200) {
       var access_token = body.access_token;
       res.send({
-        'access_token' : access_token,
-        'back':back
+        'access_token':access_token
       });
     }
   }) 
