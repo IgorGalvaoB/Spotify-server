@@ -122,7 +122,7 @@ app.get('/callback', function(req, res) {
 app.get('/refresh_token', function(req, res) {
   
   // requesting access token from refresh token
-  var refresh_token =req.body(refresh_token);
+  var refresh_token =req.params
   console.log(refresh_token)
   var authOptions = {
     url: 'https://accounts.spotify.com/api/token',
