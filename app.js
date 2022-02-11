@@ -133,19 +133,16 @@ app.get('/refresh_token', function(req, res) {
     json: true
   };
 
-  request.post(authOptions, function(error, response, body) {
-   // if (!error && response.statusCode === 200) {
-     // var access_token = body.access_token;
-      res.send(
-        //'access_token': refresh_token,
-        JSON.stringify(req.body)
-        //access_token
-     // });
-    //}
-  });
-});
+  request.post(authOptions, function(error, response, body){
+    if (error){ //&& response.statusCode === 200) {
+      //var access_token = body.access_token;
+      res.send({
+        'access_token' : refresh_token,
+      });
+    }
+  })
+})
 
 app.listen(app.get('port'), function() {
   console.log("Spotify Auth Code token exchange is running on:" + app.get('port'))
-
-})
+});
