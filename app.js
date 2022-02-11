@@ -122,8 +122,7 @@ app.get('/callback', function(req, res) {
 app.get('/refresh_token', function(req, res) {
 
   // requesting access token from refresh token
-  var refresh_token = 'AQBIjDHp4K7oykw4-CERcELbho6KBk6Nk7ORwctieL6dqoZMtA0LunffW8crYvFJ1dpsf2ZWfP_mWXy6Yr6wzdjr9hpdqW8P1u-KLvBXWhJvXTFcswvb8hRIILin4SiVkkA'
-  var b = req.headers.refresh_token
+  var refresh_token = req.refresh_token
   var authOptions = {
     url: 'https://accounts.spotify.com/api/token',
     headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
@@ -139,7 +138,6 @@ app.get('/refresh_token', function(req, res) {
       var access_token = body.access_token;
       res.send({
         'access_token': access_token,
-        'refresh_token': b
       });
     }
   });
