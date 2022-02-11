@@ -123,7 +123,6 @@ app.get('/refresh_token', function(req, res) {
   
   // requesting access token from refresh token
   var back = req.data.refresh_token
-  var refresh_token = 'AQAuv2JcEUgBdSMAjCQUFGAbHgM-b4YYnQsPDlWvG5flno5mkiyNV95LyYPMtKt80uVy7VguU7epHp7FyrWjAW5oOrcxsIkzRVEeMA-S03-XnvmhLOiwq1R_HOZdirlOSJ0'
   
   
   var authOptions = {
@@ -131,7 +130,8 @@ app.get('/refresh_token', function(req, res) {
     headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
     form: {
       grant_type: 'refresh_token',
-      refresh_token: refresh_token
+      'refresh_token':'AQAuv2JcEUgBdSMAjCQUFGAbHgM-b4YYnQsPDlWvG5flno5mkiyNV95LyYPMtKt80uVy7VguU7epHp7FyrWjAW5oOrcxsIkzRVEeMA-S03-XnvmhLOiwq1R_HOZdirlOSJ0'
+      
     },
     json: true
   };
